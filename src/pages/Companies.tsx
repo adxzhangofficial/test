@@ -89,7 +89,7 @@ export default function Companies() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filtered.map((sub, i) => {
               const Icon = sub.icon;
-              if (i >= 4) {
+              if (sub.id !== 'asm') {
                 return (
                   <div key={sub.id} className="relative bg-white br-4 border border-gray-100 overflow-hidden" style={{ transitionDelay: `${i * 80}ms` }}>
                     <div className="h-2 rounded-tl-2xl rounded-tr-2xl" style={{ background: i % 2 === 0 ? '#c11c2e' : '#083cb8' }} />
@@ -178,13 +178,25 @@ export default function Companies() {
                           ? '2026'
                           : 'TBD'}
                       </span>
-                      <button
-                        onClick={() => setToast('Website not added yet — check back soon!')}
-                        className="inline-flex items-center gap-1 text-sm font-semibold transition-colors cursor-pointer"
-                        style={{ color: sub.color }}
-                      >
-                        Visit Website <ArrowUpRight className="w-4 h-4" />
-                      </button>
+                      {sub.url ? (
+                        <a
+                          href={sub.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-sm font-semibold transition-colors"
+                          style={{ color: sub.color }}
+                        >
+                          Visit Website <ArrowUpRight className="w-4 h-4" />
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => setToast('Website not added yet — check back soon!')}
+                          className="inline-flex items-center gap-1 text-sm font-semibold transition-colors cursor-pointer"
+                          style={{ color: sub.color }}
+                        >
+                          Visit Website <ArrowUpRight className="w-4 h-4" />
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

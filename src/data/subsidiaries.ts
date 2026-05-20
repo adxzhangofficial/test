@@ -40,7 +40,7 @@ export const subsidiaries: Subsidiary[] = [
     icon: ShoppingCart,
     color: '#2563eb',
     gradient: 'from-blue-600 to-blue-800',
-    url: '/',
+    url: 'https://asmpetmarket.com',
     founded: '2026',
     status: 'active',
     highlights: ['5,000+ Products', '50-State Delivery', '24/7 Customer Support'],
